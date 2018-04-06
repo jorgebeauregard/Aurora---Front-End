@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-page',
-  templateUrl: './edit-page.component.html',
-  styleUrls: ['./edit-page.component.css']
+  selector: 'app-room-page',
+  templateUrl: './room-page.component.html',
+  styleUrls: ['./room-page.component.css']
 })
-export class EditPageComponent implements OnInit {
+export class RoomPageComponent implements OnInit {
 
   showFirst=true;
   showSecond=true;

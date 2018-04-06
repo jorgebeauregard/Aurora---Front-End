@@ -1,94 +1,136 @@
-<mat-card>
-    <p class="light-weight">
-      <span><mat-icon class="panel-heading">today</mat-icon></span>Hoy es 31 de marzo de 2018
-    </p>
-</mat-card>
-
-<div class="row">
-  <div class="col-md-3 mt-3 mb-4">
-    <h3 class="light-weight mb-2">Próxima Reserva</h3>
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Sala 9</mat-card-title>
-          <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p class>
-              Fecha:<br>
-              31/03/2018<br><br>
-              Hora:<br>
-              16:00 - 16:30
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <a routerLink="edit/48" mat-button>EDITAR</a>
-          <a mat-button (click)="openDialog()">ELIMINAR</a>
-        </mat-card-actions>
-      </mat-card>
-  </div>
-
-  <div class="col-md-6 mt-3 mb-4">
-      <h3 class="light-weight mb-2">Mis reservas</h3>
-      <div class="example-container mat-elevation-z8">
-          <mat-table #table [dataSource]="dataSource">
-        
-            <!-- Name Column -->
-            <ng-container matColumnDef="sala">
-              <mat-header-cell *matHeaderCellDef> Sala </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.sala}} </mat-cell>
-            </ng-container>
-        
-            <!-- Weight Column -->
-            <ng-container matColumnDef="fecha">
-              <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.fecha}} </mat-cell>
-            </ng-container>
-        
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="horaInicio">
-              <mat-header-cell *matHeaderCellDef> Inicio </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.horaInicio}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="horaFinal">
-                <mat-header-cell *matHeaderCellDef> Final </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.horaFinal}} </mat-cell>
-              </ng-container>
-
-            <ng-container matColumnDef="id">
-                <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                <button mat-button [matMenuTriggerFor]="menu">
-                    <mat-icon class="panel-heading">more_vert</mat-icon>
-                </button> 
-              </mat-cell>
-            </ng-container>
-        
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-          </mat-table>
+<div class="row mt-4">
+  <div class="col-md-3 mb-4 animated slideInUp">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="light-weight mb-2">Próxima Reserva</h3>
+        <mat-card class="example-card  mat-elevation-z6">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Sala 9</mat-card-title>
+              <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p class>
+                  Día:<br>
+                  31/03/2018<br><br>
+                  Hora de inicio:<br>
+                  16:00<br><br>
+                  Hora final:<br>
+                  17:30
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <a routerLink="edit/48" mat-button>EDITAR</a>
+              <a mat-button (click)="openDialog()">ELIMINAR</a>
+            </mat-card-actions>
+          </mat-card>
         </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-4 animated slideInUp">
+    <div class="row">
+        <div class="col-md-12">
+          <h3 class="light-weight mb-2">Elige una sala de estudio</h3>
+          <mat-card class="mat-elevation-z6">
+            <div class="row">
+              <div class="col-md-12">
+                  <h2 class="light-weight medium-text mb-3">Biblioteca Sur</h2>
+              </div> 
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <a routerLink="room/48"><p class="medium-text primary">Sala 1<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+                <p class="green">Disponible</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="light-weight medium-text mb-3">Biblioteca Norte</h2>
+                </div> 
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <a routerLink="room/48"><p class="medium-text primary">Sala 7<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+                  <p class="green">Disponible</p>
+                </div>
+                <div class="col-4">
+                  <a routerLink="room/48"><p class="medium-text primary">Sala 8<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+                  <p class="green">Disponible</p>
+                </div>
+                <div class="col-4">
+                  <a routerLink="room/48"><p class="medium-text primary">Sala 9<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+                  <p class="red">Ocupada</p>
+                </div>
+              </div>
+          </mat-card>
+        </div>
+
+        <div class="col-md-12 mt-3">
+            <h3 class="light-weight mb-2">Mis reservas semanales</h3>
+            <div class="example-container mat-elevation-z6">
+                <mat-table #table [dataSource]="reservas_semanales">
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="sala">
+                    <mat-header-cell *matHeaderCellDef> Sala </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.sala}} </mat-cell>
+                  </ng-container>
+              
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="fecha">
+                    <mat-header-cell *matHeaderCellDef class="more-width"> Fecha </mat-header-cell>
+                    <mat-cell *matCellDef="let element" class="more-width"> {{element.fecha}} </mat-cell>
+                  </ng-container>
+              
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="horaInicio">
+                    <mat-header-cell *matHeaderCellDef> Inicio </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.horaInicio}} </mat-cell>
+                  </ng-container>
+      
+                  <ng-container matColumnDef="horaFinal">
+                      <mat-header-cell *matHeaderCellDef> Final </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.horaFinal}} </mat-cell>
+                    </ng-container>
+      
+                  <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef class="less-width"> Acción </mat-header-cell>
+                      <mat-cell *matCellDef="let element" class="less-width">
+                      <button mat-button [matMenuTriggerFor]="menu">
+                          <mat-icon class="panel-heading">more_vert</mat-icon>
+                      </button> 
+                    </mat-cell>
+                  </ng-container>
+              
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                </div>
+              </div>
+      </div>
         
   </div>
 
-  <div class="col-md-3 mt-3 mb-4">
+  <div class="col-md-3 mb-4 animated slideInUp">
       <h3 class="light-weight mb-2">Horas restantes</h3>
-      <mat-card class="example-card">
+      <mat-card class="example-card mat-elevation-z6">
           <mat-card-header>
             <mat-card-title></mat-card-title>
             <mat-card-subtitle></mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p class="big-text blue">3:00 horas</p>
+            <p class="big-text blue animated pulse">3:00 horas</p>
             <p class="grey"><mat-icon class="panel-heading small">alarm</mat-icon>De 3:00 disponibles esta semana</p>
           </mat-card-content>
       </mat-card>
   </div>
  
-    <button mat-fab color="accent" class="fixed"><i class="material-icons">add</i></button>
 </div>
+
+
 
 <mat-menu #menu="matMenu">
     <button mat-menu-item>Editar</button>

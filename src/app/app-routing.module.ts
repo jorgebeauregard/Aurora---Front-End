@@ -2,6 +2,7 @@ import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
+import { RoomPageComponent} from './room-page/room-page.component';
 
 const routes: Routes = [
     {
@@ -11,7 +12,11 @@ const routes: Routes = [
     {
         path: 'edit/:id',
         component: EditPageComponent
-    }
+    },
+    {
+        path: 'room/:id',
+        component: RoomPageComponent
+    },
 ];
 
 @NgModule({
@@ -19,4 +24,6 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+    
+}

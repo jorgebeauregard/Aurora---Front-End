@@ -1,11 +1,13 @@
 <div class="row">
-  <div class="col-md-3 mt-3 animated slideInUp">
-    <h3 class="light-weight mb-2">Editar reservación</h3>
+  <div class="col-md-3 mt-3 mb-3 animated slideInUp">
+    <h3 class="light-weight mb-2">Reservar Sala</h3>
     <mat-card class="mat-elevation-z6">
       <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Sala 9</mat-card-title>
         <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
       </mat-card-header>
+      <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
       <div class="example-container">
         <mat-form-field>
           <mat-select placeholder="Fecha deseada">
@@ -26,18 +28,18 @@
         </mat-form-field>
 
         <mat-card-actions>
-            <button mat-button color="primary">EDITAR</button>
+            <button mat-button color="primary">RESERVAR</button>
         </mat-card-actions>
       </div>
     </mat-card>
   </div>
 
   <div class="col-md-9 mt-3 animated slideInUp">
-      <h3 class="light-weight mb-2">Calendario semanal</h3>
+      <h3 class="light-weight mb-2">Disponibilidad</h3>
       <mat-card class="mat-elevation-z6">
         <div class="row">
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-            <h3 class="light-weight mb-2 small-text" >31-03 <button mat-icon-button color="primary" (click)="clickFirst()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+            <h3 class="light-weight mb-2 small-text" >31-03 <button mat-icon-button color="primary" (click)="clickFirst()"><mat-icon class="" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
             <mat-chip-list *ngIf="showFirst" class="mat-chip-list-stacked">
                 <mat-chip *ngFor="let chip of lunes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                   {{chip.name}}
@@ -45,7 +47,7 @@
             </mat-chip-list>
           </div>
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">01-04<button mat-icon-button color="primary" (click)="clickSecond()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">01-04<button mat-icon-button color="primary" (click)="clickSecond()"><mat-icon class="" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
               <mat-chip-list  *ngIf="showSecond"class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of martes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -53,7 +55,7 @@
               </mat-chip-list>
           </div> 
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">02-04<button mat-icon-button color="primary" (click)="clickThird()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">02-04<button mat-icon-button color="primary" (click)="clickThird()"><mat-icon class="" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
               <mat-chip-list *ngIf="showThird" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of miercoles" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -61,15 +63,15 @@
               </mat-chip-list>
           </div> 
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">03-04<button mat-icon-button color="primary" (click)="clickFourth()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">03-04<button mat-icon-button color="primary" (click)="clickFourth()"><mat-icon class="" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
               <mat-chip-list *ngIf="showFourth" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of jueves" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
                   </mat-chip>
               </mat-chip-list>
           </div> 
-          <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">04-04<button mat-icon-button color="primary" (click)="clickFifth()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+          <div class="col-md- col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
+              <h3 class="light-weight mb-2 small-text">04-04<button mat-icon-button color="primary" (click)="clickFifth()"><mat-icon class="" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
               <mat-chip-list *ngIf="showFifth" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of viernes"  [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
