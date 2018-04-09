@@ -1,54 +1,5 @@
-span{
-    padding: 15px;
-}
-
-.example-icon {
-    padding: 0 14px;
-}
-  
-.example-spacer {
-    flex: 1 1 auto;
-}
-
-.date{
-    font-size: .8em;
-}
-
-.title{
-    padding: 10px;
-}
-
 .big-text{
     font-size: 3em;
-}
-
-.small-text{
-    font-size: .6em;
-}
-
-.small-icon{
-    font-size: .8em;
-}
-
-.medium-text{
-    font-size: 1.1em;
-}
-  
-.example-header-image {
-    background-image: url('https://pbs.twimg.com/profile_images/925745631695577088/clMBQQH1_400x400.jpg');
-    background-size: cover;
-}
-
-.container{
-    overflow: hidden;
-}
-
-.light-weight{
-    font-weight: 100;
-}
-
-.blue{
-    color: #3f51b5;
 }
 
 .grey{
@@ -56,34 +7,17 @@ span{
 }
 
 .small{
-    font-size: 1.3em;
-}
-
-.more-width{
-    flex: 0 0 30% !important;
-    white-space: unset !important;
-}
-
-.center{
-    text-align: center;
-}
-
-.red{
-    color: #d82a2aa6;
-}
-
-.green{
-    color: #05991183
-}
-
-.black{
-    color: black;
+    font-size: 1.2em;
 }
 
 .primary{
     color: #3f51b5
 }
 
-.col-centered{
-    margin: 0 auto;
+.light-weight{
+    font-weight: 100;
+}
+
+.panel-heading{ 
+    vertical-align: middle !important; 
 }

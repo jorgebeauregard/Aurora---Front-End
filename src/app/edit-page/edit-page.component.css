@@ -1,37 +1,7 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
-}
-
-.center {
-  width: 50%;
-  margin: 0 auto;
-}
-
 .light-weight{
   font-weight: 100;
 }
 
 .small-text{
   font-size: 1em;
-}
-
-.red{
-  color: red;
-}
-
-.grey{
-  color: #a5a2a2;
-}
-
-.panel-heading{ 
-  vertical-align: middle !important; 
-}
-
-.light-weight{
-  font-weight: 100;
 }

@@ -9,7 +9,7 @@
   <div class="row">
     <ng-container *ngFor="let sala of salas">
       <div class="col-4" *ngIf="sala.ubicacion == 'Biblioteca Sur'">
-        <a routerLink="" (click)='onSelectSala(sala)'><p class="medium-text primary">Sala {{ sala.id }}<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+        <a routerLink="" (click)='onSelectSala(sala)'><p class="medium-text primary">Sala {{ sala.id }}<mat-icon class="small-icon">keyboard_arrow_right</mat-icon></p></a>
         <ng-container *ngIf="sala.disponibilidad; then disponible; else no_disponible"></ng-container>
       </div>
     </ng-container>
@@ -23,7 +23,7 @@
     <div class="row">
       <ng-container *ngFor="let sala of salas">
         <div class="col-4" *ngIf="sala.ubicacion == 'Biblioteca Norte'">
-          <a routerLink="" (click)='onSelect(sala)'><p class="medium-text primary">Sala {{ sala. id }}<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+          <a routerLink="" (click)='onSelect(sala)'><p class="medium-text primary">Sala {{ sala. id }}<mat-icon class="small-icon">keyboard_arrow_right</mat-icon></p></a>
           <ng-container *ngIf="sala.disponibilidad; then disponible; else no_disponible"></ng-container>
         </div>
       </ng-container>

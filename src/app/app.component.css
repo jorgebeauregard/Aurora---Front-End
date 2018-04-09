@@ -5,3 +5,7 @@
 .light-weight{
     font-weight: 100;
 }
+
+.panel-heading{ 
+    vertical-align: middle !important; 
+}

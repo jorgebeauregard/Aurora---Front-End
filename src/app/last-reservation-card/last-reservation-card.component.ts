@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './last-reservation-card.component.html',
   styleUrls: ['./last-reservation-card.component.css']
 })
+
 export class LastReservationCardComponent implements OnInit {
   ultima_reserva: any;
   url = 'http://10.50.86.164:3000'
@@ -30,5 +31,4 @@ export class LastReservationCardComponent implements OnInit {
   onSelectReserva(reserva){
     this.router.navigate(['/edit', reserva.alias]);
   }
-
 }
