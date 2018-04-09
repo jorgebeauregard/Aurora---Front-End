@@ -1,0 +1,35 @@
+
+<h3 class="light-weight mb-2">Elige una sala de estudio</h3>
+<mat-card class="mat-elevation-z6">
+  <div class="row">
+    <div class="col-md-12">
+        <h2 class="light-weight medium-text mb-3">Biblioteca Sur</h2>
+    </div> 
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let sala of salas">
+      <div class="col-4" *ngIf="sala.ubicacion == 'Biblioteca Sur'">
+        <a routerLink="" (click)='onSelectSala(sala)'><p class="medium-text primary">Sala {{ sala.id }}<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+        <ng-container *ngIf="sala.disponibilidad; then disponible; else no_disponible"></ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+        <h2 class="light-weight medium-text mb-3">Biblioteca Norte</h2>
+    </div> 
+  </div>
+    <div class="row">
+      <ng-container *ngFor="let sala of salas">
+        <div class="col-4" *ngIf="sala.ubicacion == 'Biblioteca Norte'">
+          <a routerLink="" (click)='onSelect(sala)'><p class="medium-text primary">Sala {{ sala. id }}<mat-icon class="panel-heading small-icon">keyboard_arrow_right</mat-icon></p></a>
+          <ng-container *ngIf="sala.disponibilidad; then disponible; else no_disponible"></ng-container>
+        </div>
+      </ng-container>
+    </div>
+</mat-card>
+
+
+<ng-template #disponible><p class="green">Disponible</p></ng-template>
+<ng-template #no_disponible><p class="red">Ocupada</p></ng-template>

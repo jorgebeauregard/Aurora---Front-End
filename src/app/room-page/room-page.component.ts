@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-room-page',
@@ -6,16 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./room-page.component.css']
 })
 export class RoomPageComponent implements OnInit {
-
+  room_id;
   showFirst=true;
   showSecond=true;
   showThird=true;
   showFourth=true;
   showFifth=true;
 
-  constructor() { }
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit() {
+    this.room_id = parseInt(this.router.snapshot.paramMap.get('id'));
   }
 
   clickFirst(){

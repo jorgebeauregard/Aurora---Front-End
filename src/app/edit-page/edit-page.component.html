@@ -37,7 +37,11 @@
       <mat-card class="mat-elevation-z6">
         <div class="row">
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-            <h3 class="light-weight mb-2 small-text" >31-03 <button mat-icon-button color="primary" (click)="clickFirst()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+            <h3 class="light-weight mb-2 small-text" >31-03 
+              <button mat-icon-button color="primary" (click)="clickFirst()">
+                <ng-container *ngIf="showFirst; then arrow_up; else arrow_down"></ng-container>
+              </button>
+            </h3>
             <mat-chip-list *ngIf="showFirst" class="mat-chip-list-stacked">
                 <mat-chip *ngFor="let chip of lunes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                   {{chip.name}}
@@ -45,7 +49,11 @@
             </mat-chip-list>
           </div>
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">01-04<button mat-icon-button color="primary" (click)="clickSecond()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">01-04
+                <button mat-icon-button color="primary" (click)="clickSecond()">
+                  <ng-container *ngIf="showSecond; then arrow_up; else arrow_down"></ng-container>
+                </button>
+            </h3>
               <mat-chip-list  *ngIf="showSecond"class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of martes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -53,7 +61,11 @@
               </mat-chip-list>
           </div> 
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">02-04<button mat-icon-button color="primary" (click)="clickThird()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">02-04
+                <button mat-icon-button color="primary" (click)="clickThird()">
+                    <ng-container *ngIf="showThird; then arrow_up; else arrow_down"></ng-container>
+                </button>
+              </h3>
               <mat-chip-list *ngIf="showThird" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of miercoles" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -61,7 +73,11 @@
               </mat-chip-list>
           </div> 
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">03-04<button mat-icon-button color="primary" (click)="clickFourth()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">03-04
+                <button mat-icon-button color="primary" (click)="clickFourth()">
+                    <ng-container *ngIf="showFourth; then arrow_up; else arrow_down"></ng-container>
+                </button>
+              </h3>
               <mat-chip-list *ngIf="showFourth" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of jueves" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -69,7 +85,11 @@
               </mat-chip-list>
           </div> 
           <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-              <h3 class="light-weight mb-2 small-text">04-04<button mat-icon-button color="primary" (click)="clickFifth()"><mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon></button></h3>
+              <h3 class="light-weight mb-2 small-text">04-04
+                <button mat-icon-button color="primary" (click)="clickFifth()">
+                    <ng-container *ngIf="showFifth; then arrow_up; else arrow_down"></ng-container>
+                </button>
+              </h3>
               <mat-chip-list *ngIf="showFifth" class="mat-chip-list-stacked">
                   <mat-chip *ngFor="let chip of viernes"  [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
                     {{chip.name}}
@@ -80,3 +100,11 @@
       </mat-card> 
   </div>
 </div>
+
+<ng-template #arrow_up>
+  <mat-icon class="small-text" aria-hidden="true">keyboard_arrow_up</mat-icon>
+</ng-template>
+
+<ng-template #arrow_down>
+    <mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon>
+  </ng-template>

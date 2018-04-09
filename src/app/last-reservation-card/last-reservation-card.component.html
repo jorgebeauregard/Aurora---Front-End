@@ -1,0 +1,23 @@
+<h3 class="light-weight mb-2">Próxima Reserva</h3>
+<mat-card class="example-card  mat-elevation-z6" *ngFor="let reserva of ultima_reserva">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Sala {{reserva.alias}}</mat-card-title>
+    <mat-card-subtitle>{{reserva.ubicacion}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{reserva.image_path}}>
+  <mat-card-content>
+    <p class>
+        Día:<br>
+        {{reserva.day | date: 'dd/MM/yyyy'}}<br><br>
+        Hora de inicio:<br>
+        {{reserva.time}}<br><br>
+        Hora final:<br>
+        {{reserva.time}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a (click)='onSelectReserva(reserva)' mat-button>EDITAR</a>
+    <a mat-button (click)="openDialog()">ELIMINAR</a>
+  </mat-card-actions>
+</mat-card>
