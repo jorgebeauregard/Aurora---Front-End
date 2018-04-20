@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post';
 import { Observable } from 'rxjs/Observable';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -11,18 +13,20 @@ import { Observable } from 'rxjs/Observable';
 })
 
 export class AppComponent {
+  hovered: boolean = false;
+  today = Date.now();
 
-  title = 'app';
-  url = 'https://jsonplaceholder.typicode.com/posts';
-  posts: Observable<Post[]>;
+  constructor(private httpClient: HttpClient, private datePipe: DatePipe){
+  }
 
-  constructor(private httpClient: HttpClient){
+  ngOnInit(){
 
   }
 
-  ngOnInit(): void{
-    this.posts = this.httpClient.get<Post[]>(this.url);
+  onChangeHover(){
+    this.hovered=!this.hovered;
   }
+
 }
 
 

@@ -12,19 +12,24 @@ import { Router } from '@angular/router';
 })
 export class WeeklyReservationsCardComponent implements OnInit {
   reservas_semanales: any;
-  url = 'http://10.50.86.164:3000';
+  url = 'http://47.254.65.201:8081';
   session_id = 2;
   displayedColumns = ['sala', 'fecha', 'horaInicio', 'horaFinal', 'id'];
+  hovered: boolean = false;
 
   constructor(public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
 
   ngOnInit() {
-    this.httpClient.get(this.url + '/reservas_semanales?user_id=' + this.session_id)
+    this.httpClient.get(this.url + '/bookings/list?enduser=' + this.session_id)
     .subscribe(res => this.reservas_semanales = res);
   }
 
   onSelectElement(id){
     this.router.navigate(['edit/', id]);
+  }
+
+  onChangeHover(){
+    this.hovered=!this.hovered;
   }
 
 }

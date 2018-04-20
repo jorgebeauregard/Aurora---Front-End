@@ -11,11 +11,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
-    imports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule],
-    exports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule],
+    imports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule],
+    exports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule],
 })
 
 export class MaterialModule{ }

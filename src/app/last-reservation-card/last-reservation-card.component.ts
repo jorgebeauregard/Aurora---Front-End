@@ -13,12 +13,14 @@ import { DatePipe } from '@angular/common';
 
 export class LastReservationCardComponent implements OnInit {
   ultima_reserva: any;
-  url = 'http://10.50.86.164:3000'
+  url = 'http://47.254.65.201:8081';
+  session_id = 2;
+  hovered: boolean = false;
 
   constructor(public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
 
   ngOnInit() {
-    this.httpClient.get(this.url + '/ultima_reserva')
+    this.httpClient.get(this.url + '/endusers/' + this.session_id + '/latestbooking')
     .subscribe(res => this.ultima_reserva = res);
   }
 
@@ -29,6 +31,10 @@ export class LastReservationCardComponent implements OnInit {
   }
 
   onSelectReserva(reserva){
-    this.router.navigate(['/edit', reserva.alias]);
+    this.router.navigate(['/edit', reserva.room]);
+  }
+
+  onChangeHover(){
+    this.hovered=!this.hovered;
   }
 }

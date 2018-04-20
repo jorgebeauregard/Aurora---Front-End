@@ -8,18 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-rooms-card.component.css']
 })
 export class AllRoomsCardComponent implements OnInit {
-  url = 'http://10.50.86.164:3000';
+  url = 'http://47.254.65.201:8081';
   salas: any;
-
+  candidatos: any;
+  hovered: boolean = false;
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.httpClient.get(this.url + '/salas')
+    this.httpClient.get(this.url + '/rooms')
     .subscribe(res => this.salas = res);
   }
 
   onSelectSala(sala){
     this.router.navigate(['/room', sala.id]);
+  }
+
+  onChangeHover(){
+    this.hovered=!this.hovered;
   }
 
 }

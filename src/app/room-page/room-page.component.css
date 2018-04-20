@@ -10,3 +10,12 @@
   background-image: url('https://pbs.twimg.com/profile_images/925745631695577088/clMBQQH1_400x400.jpg');
   background-size: cover;
 }
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}

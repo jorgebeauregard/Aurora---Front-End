@@ -9,3 +9,11 @@
 .panel-heading{ 
     vertical-align: middle !important; 
 }
+
+.light-weight{
+    font-weight: 100;
+}
+
+.title{
+    font-size: 2.5em;
+}

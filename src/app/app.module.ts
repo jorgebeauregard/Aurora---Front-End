@@ -13,14 +13,13 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { RoomPageComponent } from './room-page/room-page.component';
-
-
-import 'hammerjs';
 import { LastReservationCardComponent } from './last-reservation-card/last-reservation-card.component';
 import { AllRoomsCardComponent } from './all-rooms-card/all-rooms-card.component';
 import { WeeklyReservationsCardComponent } from './weekly-reservations-card/weekly-reservations-card.component';
 import { TimeRemainingCardComponent } from './time-remaining-card/time-remaining-card.component';
+import { SchedulesCardComponent } from './schedules-card/schedules-card.component';
 
+import 'hammerjs';
 
 
 @NgModule({
@@ -35,6 +34,7 @@ import { TimeRemainingCardComponent } from './time-remaining-card/time-remaining
     AllRoomsCardComponent,
     WeeklyReservationsCardComponent,
     TimeRemainingCardComponent,
+    SchedulesCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +43,12 @@ import { TimeRemainingCardComponent } from './time-remaining-card/time-remaining
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,],
   bootstrap: [AppComponent],
   entryComponents: [
     DeleteDialogComponent
   ]
 })
 
-export class AppModule { }
+export class AppModule { 
+}

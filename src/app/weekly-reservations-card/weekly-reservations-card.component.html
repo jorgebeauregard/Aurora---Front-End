@@ -1,24 +1,25 @@
-<h3 class="light-weight mb-2">Mis reservas semanales</h3>
-<div class="example-container mat-elevation-z6">
+<h3 class="light-weight mb-2 black">Mis reservas semanales</h3>
+<mat-card [ngClass]="{ 'mat-elevation-z6': hovered }" (mouseenter)="onChangeHover()" (mouseleave)="onChangeHover()">
+<div class="example-container">
   <mat-table #table [dataSource]="reservas_semanales">
     <ng-container matColumnDef="sala">
       <mat-header-cell *matHeaderCellDef> Sala </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.alias}} </mat-cell>
+      <mat-cell *matCellDef="let element">{{element.alias}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="fecha">
       <mat-header-cell *matHeaderCellDef class="more-width"> Fecha </mat-header-cell>
-      <mat-cell *matCellDef="let element" class="more-width"> {{element.day | date: 'dd/MM/yyyy'}}  </mat-cell>
+      <mat-cell *matCellDef="let element" class="more-width"> {{element.day | date}}  </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="horaInicio">
       <mat-header-cell *matHeaderCellDef> Inicio </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.time | date:'shortTime'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="horaFinal">
         <mat-header-cell *matHeaderCellDef> Final </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.time | date:'shortTime'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="id">
@@ -34,6 +35,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
+</mat-card>
 
 <mat-menu #menu="matMenu">
     <ng-template matMenuContent let-id="id"> <!--Recibimos el parámetro del id para poder utilizarlo en el método -->
