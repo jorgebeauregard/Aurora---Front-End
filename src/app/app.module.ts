@@ -20,6 +20,8 @@ import { TimeRemainingCardComponent } from './time-remaining-card/time-remaining
 import { SchedulesCardComponent } from './schedules-card/schedules-card.component';
 
 import 'hammerjs';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { LogoutActionComponent } from './logout-action/logout-action.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import 'hammerjs';
     WeeklyReservationsCardComponent,
     TimeRemainingCardComponent,
     SchedulesCardComponent,
+    LoginPageComponent,
+    LogoutActionComponent,
   ],
   imports: [
     BrowserModule,
