@@ -35,14 +35,14 @@ export class AuthService {
      
     localStorage.setItem('token', res.token);
     localStorage.setItem('enduser', JSON.stringify(res.enduser));
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('expirationTime', JSON.stringify(expiresAt.valueOf()));
   }
 
   // Delete session data
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('enduser');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem('expirationTime');
   }
 
   // Returns true if the the token exists and has not expired
