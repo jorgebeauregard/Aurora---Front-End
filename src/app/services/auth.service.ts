@@ -34,14 +34,14 @@ export class AuthService {
     const expiresAt = moment().add(res.expirationTime, 'second');
      
     localStorage.setItem('token', res.token);
-    localStorage.setItem('enduser', JSON.stringify(res.enduser));
+    localStorage.setItem('enduser_id', JSON.stringify(res.enduser));
     localStorage.setItem('expirationTime', JSON.stringify(expiresAt.valueOf()));
   }
 
   // Delete session data
   logout(){
     localStorage.removeItem('token');
-    localStorage.removeItem('enduser');
+    localStorage.removeItem('enduser_id');
     localStorage.removeItem('expirationTime');
   }
 
@@ -56,8 +56,8 @@ export class AuthService {
   }
 
   // get the logged in end user
-  getEnduser(){
-    return JSON.parse(localStorage.getItem('enduser'))
+  getEnduserId(){
+    return localStorage.getItem('enduser_id');
   }
 
   getToken(){
