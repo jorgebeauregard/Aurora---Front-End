@@ -5,7 +5,7 @@
       <mat-card-content>
         <form (submit)="login(email, password)">
           <mat-form-field class="full-width">
-            <input matInput name="email" [(ngModel)]="email" placeholder="Matrícula" type="text" required>
+            <input matInput name="email" [(ngModel)]="email" placeholder="Correo electrónico" type="text" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput name="password" [(ngModel)]="password" placeholder="Contraseña" [type]="hide ? 'password' : 'text'" required>

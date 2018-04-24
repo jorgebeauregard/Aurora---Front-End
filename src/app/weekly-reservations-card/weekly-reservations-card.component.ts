@@ -36,4 +36,13 @@ export class WeeklyReservationsCardComponent implements OnInit {
     return Number(time)+1800000;
   }
 
+  openDialog(reserva): void {
+    let dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '600px',
+      data: {
+        info: reserva
+      }
+    });
+  }
+
 }

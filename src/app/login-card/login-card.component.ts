@@ -14,6 +14,10 @@ export class LoginCardComponent implements OnInit {
   hovered: boolean = false;
   success: any;
   message: string;
+
+  email: string;
+  password: string;
+  
   url = 'http://47.254.65.201:8081';
 
   constructor(private auth:AuthService, private httpClient: HttpClient, private router: Router) { }

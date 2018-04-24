@@ -22,7 +22,7 @@ export class DeleteDialogComponent implements OnInit {
 
   deleteBooking(){
     this.httpClient.delete(
-      (this.url + '/bookings/' + this.data.info.idTimeslot), 
+      (this.url + '/bookings/' + this.data.info.idBooking), 
     ).subscribe(
         res => {
           this.success = res;

@@ -25,7 +25,7 @@
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
         <mat-cell *matCellDef="let element">
-        <button mat-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{id: element.alias}"><!-- Pasamos el id -->
+        <button mat-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{reserva: element}"><!-- Pasamos el id -->
             <mat-icon class="panel-heading">more_vert</mat-icon>
         </button> 
       </mat-cell>
@@ -38,8 +38,8 @@
 </mat-card>
 
 <mat-menu #menu="matMenu">
-    <ng-template matMenuContent let-id="id"> <!--Recibimos el parámetro del id para poder utilizarlo en el método -->
-      <button (click)='onSelectElement(id)' mat-menu-item>Editar</button>
-      <button mat-menu-item (click)="openDialog()">Eliminar</button>
+    <ng-template matMenuContent let-reserva="reserva"> <!--Recibimos el parámetro del id para poder utilizarlo en el método -->
+      <button (click)='onSelectElement(reserva.id)' mat-menu-item>Editar</button>
+      <button mat-menu-item (click)="openDialog(reserva)">Eliminar</button>
     </ng-template>
 </mat-menu>
