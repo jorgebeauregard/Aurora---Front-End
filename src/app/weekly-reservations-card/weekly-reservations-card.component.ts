@@ -4,6 +4,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-weekly-reservations-card',
@@ -13,11 +14,11 @@ import { Router } from '@angular/router';
 export class WeeklyReservationsCardComponent implements OnInit {
   reservas_semanales: any;
   url = 'http://47.254.65.201:8081';
-  session_id = 5;
+  session_id = this.auth.getEnduserId();
   displayedColumns = ['sala', 'fecha', 'horaInicio', 'horaFinal', 'id'];
   hovered: boolean = false;
 
-  constructor(public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
+  constructor(public auth:AuthService, public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
 
   ngOnInit() {
     this.httpClient.get(this.url + '/bookings/list?enduser=' + this.session_id)

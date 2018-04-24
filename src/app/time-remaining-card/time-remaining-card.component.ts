@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -9,11 +10,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TimeRemainingCardComponent implements OnInit {
   hovered: boolean = false;
-  session_id = 5;
+  session_id = this.auth.getEnduserId();
   user: any;
   url = 'http://47.254.65.201:8081'
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private auth:AuthService, private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.httpClient.get(this.url + '/endusers/' + this.session_id)

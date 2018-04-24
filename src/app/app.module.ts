@@ -26,6 +26,8 @@ import { DateCardComponent } from './date-card/date-card.component';
 import { LoginCardComponent } from './login-card/login-card.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { ErrorHandlerService } from './services/error-handler.service';
+
 
 
 @NgModule({
@@ -54,7 +56,7 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DatePipe,AuthService],
+  providers: [DatePipe,AuthService, ErrorHandlerService],
   bootstrap: [AppComponent],
   entryComponents: [
     DeleteDialogComponent
