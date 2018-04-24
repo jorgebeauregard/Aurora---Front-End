@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-last-reservation-card',
@@ -14,10 +15,10 @@ import { DatePipe } from '@angular/common';
 export class LastReservationCardComponent implements OnInit {
   ultima_reserva: any;
   url = 'http://47.254.65.201:8081';
-  session_id = 5;
+  session_id = this.auth.getEnduserId();
   hovered: boolean = false;
 
-  constructor(public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
+  constructor(public auth:AuthService, public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
 
   ngOnInit() {
     this.httpClient.get(this.url + '/endusers/' + this.session_id + '/latestbooking')

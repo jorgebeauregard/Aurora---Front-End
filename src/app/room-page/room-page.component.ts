@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { ErrorHandlerService } from '../services/error-handler.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { Router } from '@angular/router';
 export class RoomPageComponent implements OnInit {
   room_id;
   sala: any;
-  session_id = 5;
+  session_id = this.auth.getEnduserId();
 
   day1;
   day2;
@@ -30,7 +32,7 @@ export class RoomPageComponent implements OnInit {
   success;
 
 
-  constructor(private activated_router: ActivatedRoute, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
+  constructor(private auth:AuthService, private errorHandler:ErrorHandlerService, private activated_router: ActivatedRoute, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
 
   ngOnInit() {
     this.room_id = parseInt(this.activated_router.snapshot.paramMap.get('id'));
@@ -59,7 +61,11 @@ export class RoomPageComponent implements OnInit {
         res => {
           this.success = res;
           this.router.navigate(['']);
-        });
+        },
+        err =>{
+          this.errorHandler.handleError(err);
+        }
+      );
   }
 
 

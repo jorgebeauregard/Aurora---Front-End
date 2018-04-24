@@ -12,11 +12,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
-    imports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule],
-    exports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule],
+    imports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule, MatSnackBarModule],
+    exports:[MatToolbarModule, MatButtonModule, MatCardModule, MatTableModule, MatIconModule, MatSelectModule, MatMenuModule, MatInputModule, MatDialogModule, MatChipsModule, MatProgressBarModule, MatSnackBarModule],
 })
 
 export class MaterialModule{ }

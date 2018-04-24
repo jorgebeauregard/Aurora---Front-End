@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { ErrorHandlerService } from '../services/error-handler.service';
 
 @Component({
   selector: 'app-login-card',
@@ -16,7 +17,7 @@ export class LoginCardComponent implements OnInit {
   message: string;
   url = 'http://47.254.65.201:8081';
 
-  constructor(private auth:AuthService, private httpClient: HttpClient, private router: Router) { }
+  constructor(private errorHandler:ErrorHandlerService, private auth:AuthService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
     if(this.auth.isLoggedIn){
@@ -38,7 +39,7 @@ export class LoginCardComponent implements OnInit {
         this.router.navigate(['']);
       },
       err =>{
-        console.log(err);
+        this.errorHandler.handleError(err);
       }
     );
   }
