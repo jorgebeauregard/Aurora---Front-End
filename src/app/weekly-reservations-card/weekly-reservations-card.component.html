@@ -9,7 +9,7 @@
 
     <ng-container matColumnDef="fecha">
       <mat-header-cell *matHeaderCellDef class="more-width"> Fecha </mat-header-cell>
-      <mat-cell *matCellDef="let element" class="more-width"> {{element.day | date}}  </mat-cell>
+      <mat-cell *matCellDef="let element" class="more-width"> {{element.day | date:'dd MMM'}}  </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="horaInicio">
@@ -19,7 +19,7 @@
 
     <ng-container matColumnDef="horaFinal">
         <mat-header-cell *matHeaderCellDef> Final </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.time | date:'shortTime'}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{addTime(element.time) | date:'shortTime'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="id">

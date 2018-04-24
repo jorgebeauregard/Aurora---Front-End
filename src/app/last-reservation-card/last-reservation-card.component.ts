@@ -14,7 +14,7 @@ import { DatePipe } from '@angular/common';
 export class LastReservationCardComponent implements OnInit {
   ultima_reserva: any;
   url = 'http://47.254.65.201:8081';
-  session_id = 2;
+  session_id = 5;
   hovered: boolean = false;
 
   constructor(public dialog: MatDialog, private httpClient: HttpClient, private datePipe: DatePipe, private router: Router) { }
@@ -27,6 +27,9 @@ export class LastReservationCardComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '600px',
+      data: {
+        info: this.ultima_reserva
+      }
     });
   }
 
@@ -36,5 +39,9 @@ export class LastReservationCardComponent implements OnInit {
 
   onChangeHover(){
     this.hovered=!this.hovered;
+  }
+
+  addTime(time){
+    return Number(time)+1800000;
   }
 }

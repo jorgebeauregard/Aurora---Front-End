@@ -14,7 +14,7 @@
           Hora de inicio:<br>
           {{ultima_reserva.time | date:'shortTime'}}<br><br>
           Hora final:<br>
-          {{ultima_reserva.time | date:'shortTime'}}
+          {{addTime(ultima_reserva.time) | date:'shortTime'}}
       </p>
     </mat-card-content>
     <mat-card-actions>

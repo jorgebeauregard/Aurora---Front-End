@@ -1,40 +1,47 @@
 <div class="row">
-  <div class="col-md-3 mt-3 mb-3 animated slideInUp">
+  <div class="col-md-3 mt-3 mb-3 animated fadeIn">
     <h3 class="light-weight mb-2">Reservar Sala</h3>
-    <mat-card class="mat-elevation-z6">
+    <mat-card class="mat-elevation-z6" *ngIf=sala>
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Sala 9</mat-card-title>
-        <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
+        <mat-card-title>Sala {{sala.alias}}</mat-card-title>
+        <mat-card-subtitle>{{sala.location}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
       <div class="example-container">
         <mat-form-field>
-          <mat-select placeholder="Fecha deseada">
-            <mat-option value="option">Option</mat-option>
+          <mat-select placeholder="Fecha deseada" [(value)]="selected_date">
+            <mat-option [value]="day1">Hoy</mat-option>
+            <mat-option [value]="day2">{{day2[0].day | date: 'EE dd-MM'}}</mat-option>
+            <mat-option [value]="day3">{{day3[0].day | date: 'EE dd-MM'}}</mat-option>
+            <mat-option [value]="day4">{{day4[0].day | date: 'EE dd-MM'}}</mat-option>
+            <mat-option [value]="day5">{{day5[0].day | date: 'EE dd-MM'}}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-select placeholder="Hora de inicio">
-              <mat-option value="option">Option</mat-option>
+            <mat-select placeholder="Hora de inicio" [(value)]="start_time" [disabled]=!selected_date>
+              <mat-option *ngFor="let date of selected_date" [value]="date.time">{{date.time | date:'shortTime'}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Hora de fin">
-            <mat-option value="option">Option</mat-option>
+          <mat-select placeholder="Hora de fin" [(value)]="end_time" [disabled]=!start_time>
+            <ng-container *ngFor="let date of selected_date">
+              <mat-option [value]="date.time" *ngIf="date.time > start_time">{{date.time | date:'shortTime'}}</mat-option>
+            </ng-container>
+            <mat-option value=-1 >20:00</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-card-actions>
-            <button mat-button color="primary">RESERVAR</button>
+            <button mat-button color="primary" (click)="createReservation(room_id, session_id, start_time, end_time)">RESERVAR</button>
         </mat-card-actions>
       </div>
     </mat-card>
   </div>
 
-  <div class="col-md-9 mt-3 animated slideInUp">
+  <div class="col-md-9 mt-3 animated fadeIn">
     <app-schedules-card [id]='room_id'></app-schedules-card>
   </div>
 </div>

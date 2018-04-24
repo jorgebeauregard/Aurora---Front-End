@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -18,12 +19,25 @@ export class SchedulesCardComponent implements OnInit {
   showFourth=true;
   showFifth=true;
 
+  day1: any;
+  day2: any;
+  day3: any;
+  day4: any;
+  day5: any;
 
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.httpClient.get(this.url + '/rooms/' + this.id)
-    .subscribe(res => this.horarios = res);
+    .subscribe(res => { this.horarios = res;
+      this.day1 = this.horarios.timeslots.filter(item => item.daysUntil === 0);
+      this.day2 = this.horarios.timeslots.filter(item => item.daysUntil === 1);
+      this.day3 = this.horarios.timeslots.filter(item => item.daysUntil === 2);
+      this.day4 = this.horarios.timeslots.filter(item => item.daysUntil === 3);
+      this.day5 = this.horarios.timeslots.filter(item => item.daysUntil === 4);
+    });
+
   }
 
   clickFirst(){
@@ -45,55 +59,5 @@ export class SchedulesCardComponent implements OnInit {
   clickFifth(){
     this.showFifth=!this.showFifth;
   }
-
-  lunes = [
-    { name: '7:00', booked: true },
-    { name: '7:30', booked: true },
-    { name: '8:00', booked: false },
-    { name: '8:30', booked: true },
-    { name: '9:00', booked: false },
-    { name: '9:30', booked: false },
-    { name: '10:00', booked: false }
-  ];
-
-  martes = [
-    { name: '7:00', booked: true },
-    { name: '7:30', booked: true },
-    { name: '8:00', booked: false },
-    { name: '8:30', booked: false },
-    { name: '9:00', booked: true },
-    { name: '9:30', booked: true },
-    { name: '10:00', booked: false }
-  ];
-
-  miercoles = [
-    { name: '7:00', booked: true },
-    { name: '7:30', booked: true },
-    { name: '8:00', booked: true },
-    { name: '8:30', booked: true },
-    { name: '9:00', booked: true },
-    { name: '9:30', booked: true },
-    { name: '10:00', booked: false }
-  ];
-
-  jueves = [
-    { name: '7:00', booked: true },
-    { name: '7:30', booked: true },
-    { name: '8:00', booked: false },
-    { name: '8:30', booked: false },
-    { name: '9:00', booked: true },
-    { name: '9:30', booked: false },
-    { name: '10:00', booked: true }
-  ];
-
-  viernes = [
-    { name: '7:00', booked: true },
-    { name: '7:30', booked: true },
-    { name: '8:00', booked: false },
-    { name: '8:30', booked: false },
-    { name: '9:00', booked: false },
-    { name: '9:30', booked: true },
-    { name: '10:00', booked: true }
-  ];
 
 }

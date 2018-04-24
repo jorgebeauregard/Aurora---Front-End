@@ -1,63 +1,63 @@
 <h3 class="light-weight mb-2">Calendario semanal</h3>
 <mat-card class="mat-elevation-z6">
-  <div class="row">
+  <div class="row" *ngIf=horarios>
     <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-      <h3 class="light-weight mb-2 small-text" >31-03 
-        <button mat-icon-button color="primary" (click)="clickFirst()">
+      <h3 class="light-weight mb-3 small-text" >Hoy
+        <button mat-icon-button color="primary" (click)="clickFirst()" class="d-sm-none">
           <ng-container *ngIf="showFirst; then arrow_up; else arrow_down"></ng-container>
         </button>
       </h3>
       <mat-chip-list *ngIf="showFirst" class="mat-chip-list-stacked">
-          <mat-chip *ngFor="let chip of lunes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
-            {{chip.name}}
+          <mat-chip *ngFor="let chip of day1" [selected]="chip.booked === 'true' ? false : true" [ngStyle]="{'color': chip.booked === 'true' ? '#aaaaaa' : 'white' }">
+            {{chip.time | date:'shortTime'}}
           </mat-chip>
       </mat-chip-list>
     </div>
     <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-        <h3 class="light-weight mb-2 small-text">01-04
-          <button mat-icon-button color="primary" (click)="clickSecond()">
+        <h3 class="light-weight mb-3 small-text">{{ day2[0].time | date: 'EE dd-MM'}}
+          <button mat-icon-button color="primary" (click)="clickSecond()" class="d-sm-none">
             <ng-container *ngIf="showSecond; then arrow_up; else arrow_down"></ng-container>
           </button>
       </h3>
         <mat-chip-list  *ngIf="showSecond"class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of martes" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
-              {{chip.name}}
+            <mat-chip *ngFor="let chip of day2" [selected]="chip.booked === 'true' ? false : true" [ngStyle]="{'color': chip.booked === 'true' ? '#aaaaaa' : 'white' }">
+              {{chip.time | date:'shortTime'}}
             </mat-chip>
         </mat-chip-list>
     </div> 
     <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-        <h3 class="light-weight mb-2 small-text">02-04
-          <button mat-icon-button color="primary" (click)="clickThird()">
+        <h3 class="light-weight mb-3 small-text">{{day3[0].time | date: 'EE dd-MM'}}
+          <button mat-icon-button color="primary" (click)="clickThird()" class="d-sm-none">
               <ng-container *ngIf="showThird; then arrow_up; else arrow_down"></ng-container>
           </button>
         </h3>
         <mat-chip-list *ngIf="showThird" class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of miercoles" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
-              {{chip.name}}
+            <mat-chip *ngFor="let chip of day3" [selected]="chip.booked === 'true' ? false : true" [ngStyle]="{'color': chip.booked === 'true' ? '#aaaaaa' : 'white' }">
+              {{chip.time | date:'shortTime'}}
             </mat-chip>
         </mat-chip-list>
     </div> 
     <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-        <h3 class="light-weight mb-2 small-text">03-04
-          <button mat-icon-button color="primary" (click)="clickFourth()">
+        <h3 class="light-weight mb-3 small-text">{{day4[0].time | date: 'EE dd-MM'}}
+          <button mat-icon-button color="primary" (click)="clickFourth()" class="d-sm-none">
               <ng-container *ngIf="showFourth; then arrow_up; else arrow_down"></ng-container>
           </button>
         </h3>
         <mat-chip-list *ngIf="showFourth" class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of jueves" [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
-              {{chip.name}}
+            <mat-chip *ngFor="let chip of day4" [selected]="chip.booked === 'true' ? false : true" [ngStyle]="{'color': chip.booked === 'true' ? '#aaaaaa' : 'white' }">
+              {{chip.time | date:'shortTime'}} 
             </mat-chip>
         </mat-chip-list>
     </div> 
     <div class="col-md-2 col-xs-2 col-sm-2 mb-3 mr-2 ml-2">
-        <h3 class="light-weight mb-2 small-text">04-04
-          <button mat-icon-button color="primary" (click)="clickFifth()">
+        <h3 class="light-weight mb-3 small-text">{{day5[0].time | date: 'EE dd-MM'}}
+          <button mat-icon-button color="primary" (click)="clickFifth()" class="d-sm-none">
               <ng-container *ngIf="showFifth; then arrow_up; else arrow_down"></ng-container>
           </button>
         </h3>
         <mat-chip-list *ngIf="showFifth" class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of viernes"  [selected]="chip.booked ? false : true" [ngStyle]="{'color':chip.booked ? '#aaaaaa' : 'white' }">
-              {{chip.name}}
+            <mat-chip *ngFor="let chip of day5" [selected]="chip.booked === 'true' ? false : true" [ngStyle]="{'color': chip.booked === 'true' ? '#aaaaaa' : 'white' }">
+              {{chip.time | date:'shortTime'}}
             </mat-chip>
         </mat-chip-list>
     </div> 
@@ -65,9 +65,9 @@
 </mat-card> 
 
 <ng-template #arrow_up>
-  <mat-icon class="small-text d-block d-sm-none" aria-hidden="true">keyboard_arrow_up</mat-icon>
+  <mat-icon class="small-text" aria-hidden="true">keyboard_arrow_up</mat-icon>
 </ng-template>
 
 <ng-template #arrow_down>
-    <mat-icon class="small-text d-block d-sm-none" aria-hidden="true">keyboard_arrow_down</mat-icon>
+    <mat-icon class="small-text" aria-hidden="true">keyboard_arrow_down</mat-icon>
   </ng-template>

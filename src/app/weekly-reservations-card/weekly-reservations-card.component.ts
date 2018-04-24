@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class WeeklyReservationsCardComponent implements OnInit {
   reservas_semanales: any;
   url = 'http://47.254.65.201:8081';
-  session_id = 2;
+  session_id = 5;
   displayedColumns = ['sala', 'fecha', 'horaInicio', 'horaFinal', 'id'];
   hovered: boolean = false;
 
@@ -30,6 +30,10 @@ export class WeeklyReservationsCardComponent implements OnInit {
 
   onChangeHover(){
     this.hovered=!this.hovered;
+  }
+
+  addTime(time){
+    return Number(time)+1800000;
   }
 
 }
