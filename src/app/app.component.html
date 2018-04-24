@@ -1,14 +1,3 @@
 <app-navigation-bar></app-navigation-bar>
 
-<div class="container mt-5">
-  <mat-card mb-3 class="animated fadeIn" [ngClass]="{ 'mat-elevation-z6': hovered }" (mouseenter)="onChangeHover()" (mouseleave)="onChangeHover()">
-    <p class="light-weight">
-      <span><mat-icon class="panel-heading">today</mat-icon></span>
-      <span style="display:inline-block; width: 50;"></span>
-      Hoy es {{today | date:'fullDate'}}
-    </p>
-  </mat-card>
-    <router-outlet></router-outlet>
-</div>
-
-  
+<router-outlet></router-outlet>

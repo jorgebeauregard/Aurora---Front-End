@@ -1,0 +1,28 @@
+.light-weight{
+    font-weight: 100;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.right{
+    float: right;
+}
+
+#parent{
+    overflow: hidden;
+}
+
+.Aligner {
+    height: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.Aligner-item {
+    max-width: 100%;
+}
+  
