@@ -22,6 +22,10 @@ import { SchedulesCardComponent } from './schedules-card/schedules-card.componen
 import 'hammerjs';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LogoutActionComponent } from './logout-action/logout-action.component';
+import { DateCardComponent } from './date-card/date-card.component';
+import { LoginCardComponent } from './login-card/login-card.component';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -39,6 +43,8 @@ import { LogoutActionComponent } from './logout-action/logout-action.component';
     SchedulesCardComponent,
     LoginPageComponent,
     LogoutActionComponent,
+    DateCardComponent,
+    LoginCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +52,9 @@ import { LogoutActionComponent } from './logout-action/logout-action.component';
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
   ],
-  providers: [DatePipe,],
+  providers: [DatePipe,AuthService],
   bootstrap: [AppComponent],
   entryComponents: [
     DeleteDialogComponent

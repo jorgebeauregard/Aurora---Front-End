@@ -15,10 +15,10 @@ export class AuthService {
   }
 
   // Make the post request with the email and password provided, if successful, sets session data
-  login(mail:string, password:string) {
+  login(email:string, password:string) {
     let enduser;
     let body = {
-      email: mail,
+      email: email,
       password: password
     }
 
@@ -52,7 +52,7 @@ export class AuthService {
 
   // Get the moment expiration time
   getExpiration(){
-    return moment(JSON.parse(localStorage.getItem('expires_at')));
+    return moment(JSON.parse(localStorage.getItem('expirationTime'))); 
   }
 
   // get the logged in end user

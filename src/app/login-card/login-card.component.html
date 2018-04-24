@@ -1,0 +1,19 @@
+<div class="Aligner">
+  <div class="Aligner-item">
+    <h3 class="light-weight">Iniciar sesión</h3>
+    <mat-card id="parent" [ngClass]="{ 'mat-elevation-z6': hovered }" (mouseenter)="onChangeHover()" (mouseleave)="onChangeHover()">
+      <mat-card-content>
+        <form (submit)="login(email, password)">
+          <mat-form-field class="full-width">
+            <input matInput name="email" [(ngModel)]="email" placeholder="Matrícula" type="text" required>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="password" [(ngModel)]="password" placeholder="Contraseña" [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="togglePassword()">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <button type="submit" mat-raised-button color="primary" class="right">Ingresar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

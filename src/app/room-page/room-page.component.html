@@ -1,40 +1,42 @@
-<div class="row">
-  <div class="col-md-3 mt-3 mb-3 animated slideInUp">
-    <h3 class="light-weight mb-2">Reservar Sala</h3>
-    <mat-card class="mat-elevation-z6">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Sala 9</mat-card-title>
-        <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
-      <div class="example-container">
-        <mat-form-field>
-          <mat-select placeholder="Fecha deseada">
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3 mt-3 mb-3 animated slideInUp">
+      <h3 class="light-weight mb-2">Reservar Sala</h3>
+      <mat-card class="mat-elevation-z6">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Sala 9</mat-card-title>
+          <mat-card-subtitle>Biblioteca Sur</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Fecha deseada">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field>
+          <mat-form-field>
             <mat-select placeholder="Hora de inicio">
               <mat-option value="option">Option</mat-option>
             </mat-select>
-        </mat-form-field>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-select placeholder="Hora de fin">
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Hora de fin">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-card-actions>
+          <mat-card-actions>
             <button mat-button color="primary">RESERVAR</button>
-        </mat-card-actions>
-      </div>
-    </mat-card>
-  </div>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
 
-  <div class="col-md-9 mt-3 animated slideInUp">
-    <app-schedules-card [id]='room_id'></app-schedules-card>
+    <div class="col-md-9 mt-3 animated slideInUp">
+      <app-schedules-card [id]='room_id'></app-schedules-card>
+    </div>
   </div>
 </div>

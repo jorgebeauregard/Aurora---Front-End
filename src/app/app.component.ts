@@ -1,8 +1,6 @@
 import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post';
-import { Observable } from 'rxjs/Observable';
-import { DatePipe } from '@angular/common';
 
 
 
@@ -13,18 +11,12 @@ import { DatePipe } from '@angular/common';
 })
 
 export class AppComponent {
-  hovered: boolean = false;
-  today = Date.now();
 
-  constructor(private httpClient: HttpClient, private datePipe: DatePipe){
+  constructor(private httpClient: HttpClient){
   }
 
   ngOnInit(){
 
-  }
-
-  onChangeHover(){
-    this.hovered=!this.hovered;
   }
 
 }
