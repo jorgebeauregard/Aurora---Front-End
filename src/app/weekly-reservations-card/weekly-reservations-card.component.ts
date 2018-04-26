@@ -25,8 +25,8 @@ export class WeeklyReservationsCardComponent implements OnInit {
     .subscribe(res => this.reservas_semanales = res);
   }
 
-  onSelectElement(id){
-    this.router.navigate(['edit/', id]);
+  onSelectElement(reserva){
+    this.router.navigate(['edit/', reserva.idBooking]);
   }
 
   onChangeHover(){

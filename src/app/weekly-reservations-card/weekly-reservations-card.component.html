@@ -39,7 +39,7 @@
 
 <mat-menu #menu="matMenu">
     <ng-template matMenuContent let-reserva="reserva"> <!--Recibimos el parámetro del id para poder utilizarlo en el método -->
-      <button (click)='onSelectElement(reserva.id)' mat-menu-item>Editar</button>
+      <button (click)='onSelectElement(reserva)' mat-menu-item>Editar {{reserva.idBooking}}</button>
       <button mat-menu-item (click)="openDialog(reserva)">Eliminar</button>
     </ng-template>
 </mat-menu>

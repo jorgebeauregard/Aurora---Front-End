@@ -22,7 +22,9 @@
 
           <mat-form-field>
               <mat-select placeholder="Hora de inicio" [(value)]="start_time" [disabled]=!selected_date>
-                <mat-option *ngFor="let date of selected_date" [value]="date.time">{{date.time | date:'shortTime'}}</mat-option>
+                <ng-container *ngFor="let date of selected_date">
+                  <mat-option *ngIf="date.booked === 'false'" [value]="date.time">{{date.time | date:'shortTime'}}</mat-option>
+                </ng-container>
               </mat-select>
             </mat-form-field>
 
@@ -31,7 +33,7 @@
               <ng-container *ngFor="let date of selected_date">
                 <mat-option [value]="date.time" *ngIf="date.time > start_time">{{date.time | date:'shortTime'}}</mat-option>
               </ng-container>
-              <mat-option value=-1 >20:00</mat-option>
+              <mat-option value=-1 >00:00</mat-option>
             </mat-select>
           </mat-form-field>
 

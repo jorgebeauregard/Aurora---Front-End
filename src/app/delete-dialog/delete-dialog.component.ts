@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ErrorHandlerService } from '../services/error-handler.service';
+
 
 
 
@@ -15,7 +17,7 @@ export class DeleteDialogComponent implements OnInit {
   url = 'http://47.254.65.201:8081';
   success;
 
-  constructor(public thisDialogRef: MatDialogRef<DeleteDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private httpClient: HttpClient, private router: Router) { }
+  constructor(public thisDialogRef: MatDialogRef<DeleteDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private httpClient: HttpClient, private router: Router, private errorHandler:ErrorHandlerService) { }
 
   ngOnInit() {
   }
@@ -27,6 +29,9 @@ export class DeleteDialogComponent implements OnInit {
         res => {
           this.success = res;
           this.refresh();
+        },
+        err =>{
+          this.errorHandler.handleError(err);
         });
   }
 

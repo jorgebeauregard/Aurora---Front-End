@@ -35,7 +35,7 @@ export class LastReservationCardComponent implements OnInit {
   }
 
   onSelectReserva(reserva){
-    this.router.navigate(['/edit', reserva.room]);
+    this.router.navigate(['/edit', reserva.idBooking]);
   }
 
   onChangeHover(){
