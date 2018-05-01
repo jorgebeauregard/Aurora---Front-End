@@ -1,3 +1,7 @@
-<app-navigation-bar></app-navigation-bar>
-
-<router-outlet></router-outlet>
+<div id="body" [class.night-mode]="night_mode">
+    <app-navigation-bar></app-navigation-bar>
+    <router-outlet></router-outlet>
+    <button mat-fab class="fixed-button" (click)=toggleNightMode()>
+        <mat-icon>{{night_mode ? 'brightness_5' : 'brightness_3'}}</mat-icon>
+    </button>
+</div>

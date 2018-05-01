@@ -1,5 +1,5 @@
-<mat-card mb-3 class="animated fadeIn" [ngClass]="{ 'mat-elevation-z6': hovered }" (mouseenter)="onChangeHover()" (mouseleave)="onChangeHover()">
-  <p class="light-weight">
+<mat-card mb-3 class="animated fadeIn card-night" [ngClass]="{ 'mat-elevation-z6': hovered }" (mouseenter)="onChangeHover()" (mouseleave)="onChangeHover()">
+  <p class="light-weight" id="change-to-white">
     <span><mat-icon class="panel-heading">today</mat-icon></span>
     <span style="display:inline-block; width: 50;"></span>
     Hoy es {{today | date:'fullDate'}}

@@ -11,30 +11,33 @@
         <img mat-card-image src="http://www.multimedia.com.mx/wp-content/uploads/2017/04/Sala-Juntas-Crestron.jpg" alt="Photo of a Shiba Inu">
         <div class="example-container">
           <mat-form-field>
-            <mat-select placeholder="Fecha deseada" [(value)]="selected_date">
+            <mat-select [(value)]="selected_date">
               <mat-option [value]="day1">Hoy</mat-option>
               <mat-option [value]="day2">{{day2[0].day | date: 'EE dd-MM'}}</mat-option>
               <mat-option [value]="day3">{{day3[0].day | date: 'EE dd-MM'}}</mat-option>
               <mat-option [value]="day4">{{day4[0].day | date: 'EE dd-MM'}}</mat-option>
               <mat-option [value]="day5">{{day5[0].day | date: 'EE dd-MM'}}</mat-option>
             </mat-select>
+            <mat-placeholder>Fecha deseada</mat-placeholder>
           </mat-form-field>
 
           <mat-form-field>
-              <mat-select placeholder="Hora de inicio" [(value)]="start_time" [disabled]=!selected_date>
+              <mat-select [(value)]="start_time" [disabled]=!selected_date>
                 <ng-container *ngFor="let date of selected_date">
                   <mat-option *ngIf="date.booked === 'false'" [value]="date.time">{{date.time | date:'shortTime'}}</mat-option>
                 </ng-container>
               </mat-select>
+              <mat-placeholder>Hora de inicio</mat-placeholder>
             </mat-form-field>
 
           <mat-form-field>
-            <mat-select placeholder="Hora de fin" [(value)]="end_time" [disabled]=!start_time>
+            <mat-select [(value)]="end_time" [disabled]=!start_time>
               <ng-container *ngFor="let date of selected_date">
                 <mat-option [value]="date.time" *ngIf="date.time > start_time">{{date.time | date:'shortTime'}}</mat-option>
               </ng-container>
               <mat-option value=-1 >00:00</mat-option>
             </mat-select>
+            <mat-placeholder>Hora de fin</mat-placeholder>
           </mat-form-field>
 
           <mat-card-actions>

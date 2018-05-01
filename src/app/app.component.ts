@@ -11,12 +11,17 @@ import { Post } from './post';
 })
 
 export class AppComponent {
+  night_mode=false;
 
   constructor(private httpClient: HttpClient){
   }
 
   ngOnInit(){
 
+  }
+
+  toggleNightMode(){
+    this.night_mode=!this.night_mode;
   }
 
 }

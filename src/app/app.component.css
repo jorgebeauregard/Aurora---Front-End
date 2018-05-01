@@ -17,3 +17,9 @@
 .title{
     font-size: 2.5em;
 }
+
+.fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+}

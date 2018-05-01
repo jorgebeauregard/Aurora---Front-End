@@ -9,3 +9,70 @@ body {
 .black{
     color: rgb(68, 68, 68);
 }
+
+.night-mode{
+    background-color: rgb(20, 29, 38);
+    background-image: none;
+}
+
+#body.night-mode h3{
+    color:white;
+}
+
+#body.night-mode h2{
+    color:white;
+}
+
+
+#body.night-mode span{
+    color:white;
+}
+
+#body.night-mode mat-card{
+    background-color:rgb(27,40,54);
+}
+
+#body.night-mode mat-table{
+    background-color:rgb(27,40,54);
+}
+
+#body.night-mode mat-header-cell
+{
+    color:white;
+}
+
+#body.night-mode mat-cell
+{
+    color:white;
+}
+
+#body.night-mode mat-card-title
+{
+    color:white;
+}
+
+#body.night-mode mat-card-subtitle
+{
+    color:white;
+}
+
+
+#body.night-mode mat-toolbar
+{
+    background-color:rgb(17, 24, 31) !important;
+}
+
+#body.night-mode mat-option
+{
+    background-color:rgb(27,40,54);
+}
+
+#body.night-mode mat-placeholder
+{
+    color: white !important;
+}
+
+#body.night-mode p#change-to-white{
+    color:white;
+}
+
