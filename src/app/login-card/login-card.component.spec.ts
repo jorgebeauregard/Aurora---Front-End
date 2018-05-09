@@ -1,4 +1,8 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
 
 import { LoginCardComponent } from './login-card.component';
 
@@ -8,7 +12,10 @@ describe('LoginCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginCardComponent ]
+      imports: [MaterialModule, AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
     .compileComponents();
   }));

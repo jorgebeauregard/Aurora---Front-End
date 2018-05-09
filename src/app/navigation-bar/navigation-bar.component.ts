@@ -22,5 +22,4 @@ export class NavigationBarComponent implements OnInit {
     return (this.Auth.isLoggedIn());
   }
 
-
 }

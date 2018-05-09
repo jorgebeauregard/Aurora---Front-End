@@ -1,3 +1,8 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
+
 import { TestBed, async, inject } from '@angular/core/testing';
 
 import { AuthGuard } from './auth.guard';
@@ -5,7 +10,10 @@ import { AuthGuard } from './auth.guard';
 describe('AuthGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthGuard]
+      imports: [MaterialModule, AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     });
   });
 

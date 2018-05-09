@@ -1,4 +1,8 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
 
 import { EditPageComponent } from './edit-page.component';
 
@@ -8,9 +12,12 @@ describe('EditPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditPageComponent ]
+      imports: [MaterialModule, AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

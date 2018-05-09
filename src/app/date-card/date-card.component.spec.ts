@@ -1,6 +1,9 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DateCardComponent } from './date-card.component';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
 
 describe('DateCardComponent', () => {
   let component: DateCardComponent;
@@ -8,7 +11,10 @@ describe('DateCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateCardComponent ]
+      imports: [ MaterialModule, AppModule ],
+        providers: [
+          {provide: APP_BASE_HREF, useValue: '/'}
+        ]
     })
     .compileComponents();
   }));

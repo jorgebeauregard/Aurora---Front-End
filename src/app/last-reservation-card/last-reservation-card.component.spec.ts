@@ -1,4 +1,8 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
 
 import { LastReservationCardComponent } from './last-reservation-card.component';
 
@@ -8,7 +12,10 @@ describe('LastReservationCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LastReservationCardComponent ]
+      imports: [MaterialModule, AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
     .compileComponents();
   }));

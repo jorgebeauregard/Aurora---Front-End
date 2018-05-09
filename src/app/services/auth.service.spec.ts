@@ -1,3 +1,7 @@
+import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+import { MaterialModule } from './../material.module';
+import { AppModule } from './../app.module';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
@@ -5,11 +9,20 @@ import { AuthService } from './auth.service';
 describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthService]
+      imports: [MaterialModule, AppModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     });
   });
 
   it('should be created', inject([AuthService], (service: AuthService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should logout', inject([AuthService], (service: AuthService) => {
+    service.logout();
+    expect(service.isLoggedIn()).toBe(false)
+  }));
+
 });
